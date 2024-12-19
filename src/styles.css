@@ -1,7 +1,52 @@
-.invisible {
-    visibility: hidden;
+body {
+    background-color: lightblue;
 }
 
-.visible {
-    visibility: visible;
+.carousel {
+    position: relative;
+    width: 500px; /* Adjust width */
+    height: 200px;
+    background-color: white;
+    overflow: hidden;
 }
+
+.carousel-track {
+    display: flex;
+    position: relative;
+    top: 25%;
+    left: 50%;
+    
+    transition: transform 0.5s ease-in-out;
+    border: 1px black solid;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+.carousel img {
+    width: 500px; /* Match the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+
+

@@ -3,33 +3,26 @@
 // div with menu items (links?)
 import "./styles.css";
 
-let dropdowns = document.querySelectorAll(".dropdown");
+const track = document.querySelector('.carousel-track');
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
 
+let currentIndex = 0;
 
-dropdowns.forEach((item)=>{
-    const btn = item.querySelector('button');
+const images = document.querySelectorAll('.carousel-track img');
+const imageWidth = images[0].clientWidth;
 
-    btn.addEventListener('click', (event) => {
-        event.stopPropagation();
-        const menulist = item.querySelector('div');
-        dropDown(menulist)
-    });
-})
+nextButton.addEventListener('click', () => {
+  console.log(currentIndex);
+  if (currentIndex < images.length - 1) {
+    currentIndex++;
+    track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+  }
+});
 
-// document.addEventListener('click', ()=>{
-//    const menuDiv = document.getElementById("dd1");
-//    menuDiv.classList.remove('visible');
-//    menuDiv.classList.add('invisible');
-// });
-
-// const menuButton = document.getElementById("menu");
-// menuButton.addEventListener('click', () => {
-//     event.stopPropagation();
-//     dropDown(menuButton)});
-
-function dropDown (button){
-    //const button = document.getElementById("dd1");
-    button.classList.toggle('visible');
-    button.classList.toggle('invisible');
-}
-
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+  }
+});
